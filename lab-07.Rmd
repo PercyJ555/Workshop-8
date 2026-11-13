@@ -29,23 +29,42 @@ glimpse(college_grad_df)
 
 ```{r}
 #your code here
+library(ggplot2)
+ggplot(data = college_grad_df,
+       mapping = aes(x = median)) +
+  geom_histogram(bins = 50, binwidth = 2500)
+  
+ggplot(data = college_grad_df,
+       mapping = aes(x = major_category, y = median)) +
+  geom_col()
+
+
 ```
-
-*Your explanation*
-
+## engineering has the highest median earnings
 
 # Exercise 2: Exploring relationship
 
 ```{r}
 #your code here
-```
+ggplot(data = college_grad_df,
+       mapping = aes(x = sharewomen, y = median)) +
+geom_point() +
+geom_smooth(method = "lm",
+            se = FALSE)
 
-*Your explanation*
+
+  
+
+```
+## negative correlation between share of women and median salary
+ 
 
 # Exercise 3: Fit and interpret a numerical predictor
 
 ```{r}
 #your code here
+linear_reg()
+
 ```
 
 *Your explanation*
