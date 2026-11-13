@@ -1,6 +1,6 @@
 ---
 title: "Lab 07 - Modelling earnings and course evaluations"
-author: "INSERT NAME HERE"
+author: "Percy Jung"
 date: "`r Sys.Date()`"
 output: html_document
 ---
@@ -8,6 +8,7 @@ output: html_document
 ### Packages and Data
 
 ```{r load-packages, message=FALSE, echo=TRUE}
+install.packages("tidymodels")
 library(tidyverse)
 library(tidymodels)
 
@@ -16,6 +17,7 @@ library(tidymodels)
 ## Data set: college recent grads
 
 ```{r, warning=FALSE, message=FALSE}
+install.packages("fivethirtyeight")
 library(fivethirtyeight)
 college_grad_df <- college_recent_grads
 # First look at your data set
