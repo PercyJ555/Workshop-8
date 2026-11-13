@@ -50,7 +50,8 @@ ggplot(data = college_grad_df,
        mapping = aes(x = sharewomen, y = median)) +
 geom_point() +
 geom_smooth(method = "lm",
-            se = FALSE)
+            se = FALSE) +
+  labs(y = "median salary (£2500)")
 
 
   
@@ -63,8 +64,20 @@ geom_smooth(method = "lm",
 
 ```{r}
 #your code here
-linear_reg()
+share_fit <- linear_reg() %>%
+  set_engine("lm") %>%
+  fit(median ~ sharewomen, data = college_grad_df)
 
+share_fit_aug <- augment(share_fit$fit)
+
+share_fit_aug
+
+ggplot(data = share_fit_aug,
+       mapping = aes(x = .fitted, y = .resid)) +
+  geom_point() +
+  geom_hline(yintercept = 0, color = "black")
+
+help("augment")
 ```
 
 *Your explanation*
